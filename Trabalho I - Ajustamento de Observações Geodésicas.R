@@ -31,10 +31,12 @@ print(B)
 # calcular [A]^t[A]
 
 C = t(matriz_A) %*% matriz_A
-C
+print(C)
 
 # D)
+
 # calcular [B][l][B]^t 
+
 # não é possível realizar o cálculo. 
 
 #D = matriz_B %*% matriz_l %*% t(matriz_B)
@@ -44,7 +46,7 @@ C
 # calcular l por l transposta 
 
 E = matriz_l %*% t(matriz_l)
-E
+print(E)
 
 # F) 
 
@@ -57,10 +59,11 @@ print(F)
 
 G = solve(matriz_A) # erro inesperado!!!
 G
+
 # H) [A][x] = [l] 
 
 H = solve(matriz_A, matriz_l)
-print(H)
+H
 
 ## 2) 
 
@@ -76,6 +79,7 @@ t(vet_c)
 
 fqf = t(vet_c) %*% matriz_P %*% vet_c
 print(fqf)
+
 
 # 3) 
 
@@ -104,6 +108,8 @@ res
 res = exemp_2 * exemp_1 * exemp 
 print(res)
 
+res == res_
+
 # confirma-se a igualdade
 
 # 4
@@ -112,13 +118,10 @@ print(res)
 
 matriz_N <- matrix(c(3, 2, 6, 5), nrow = 2, ncol = 2)
 matriz_M <- matrix(c(1, 5, 3, 12), nrow = 2, ncol = 2)
+
 traco = diag(matriz_M + matriz_N)
 
-print(traco)
-
-traco_1 = diag(matriz_M) + diag(matriz_N)
-
-print(traco_1)
+traco
 
 # b) 
 
@@ -127,22 +130,27 @@ b = diag(c * matriz_M)
 print(b)
 
 comprov = c * diag(matriz_M)
+comprov
+
+b == comprov
 
 #diag(matriz_M)
 
 # c) 
 
 c_ = diag(matriz_M * matriz_N)
+c_
 c_1 = diag(matriz_N * matriz_M)
+c_1
 
 c_ == c_1
 
-
 # d) 
 
-# nao fechou... 
+# Não fechou. 
 
 d = solve(matriz_M)
+d
 
 d1 = d * matriz_N * matriz_M    
 
@@ -150,6 +158,6 @@ print(d1)
 
 n = diag(matriz_N)
 
-d1 == n
+n
 
-print(n)
+d1 == n
