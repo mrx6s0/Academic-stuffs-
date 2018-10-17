@@ -1,0 +1,30 @@
+Teoria dos Erros
+
+Tipos de erros:
+
+Erros sistemáticos, acidentais, grosseiros. 
+
+Erros grosseiros:
+
+normalmente ocorre por distração do operador, podendo ser evitado tomando-se o máximo de cuidado possvel na aquisição 
+dos dados.
+
+erros superiores a 3 x o desvio padrão.
+
+# (3*dp)
+
+# desviopadrao <- sd(desvido_padrao_erros) 
+# desviopadrao
+
+# grosseiro <- (desviopadrao*3) 
+# grosseiro 
+
+
+Erros  Sistemáticos:  se  repetem  com  a  mesma  magnitude  e  sinal  algébrico,  em  igualdade  de  condições.
+
+Pode  ser  corrigido  comparando-se  o  instrumento  utilizado  com  um  instrumento  padrão;
+
+○Exemplos:  trena  com  comprimento  diferente  do  especificado  no  certificado  de  calibração;
+
+  ausência  da  parte  inicial  graduada  de  uma  trena;
+
