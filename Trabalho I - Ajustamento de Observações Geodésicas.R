@@ -31,12 +31,10 @@ print(B)
 # calcular [A]^t[A]
 
 C = t(matriz_A) %*% matriz_A
-print(C)
+C
 
 # D)
-
 # calcular [B][l][B]^t 
-
 # não é possível realizar o cálculo. 
 
 #D = matriz_B %*% matriz_l %*% t(matriz_B)
@@ -46,7 +44,7 @@ print(C)
 # calcular l por l transposta 
 
 E = matriz_l %*% t(matriz_l)
-print(E)
+E
 
 # F) 
 
@@ -139,7 +137,6 @@ c_1 = diag(matriz_N * matriz_M)
 
 c_ == c_1
 
-#true
 
 # d) 
 
