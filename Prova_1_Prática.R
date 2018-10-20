@@ -4,9 +4,9 @@
 #                                                         #
 #                                                         #
 #                                                         #
-# Curso de Engenharia                                     #
-#                          
-# II semestre de 2018  
+# Curso de Engenharia Florestal                           #
+#                                                         #
+# II semestre de 2018                                     #
 #                                                         #
 # Prova Prática I - Ajustamento de Observações Geodésicas # 
 #                                                         #
@@ -15,7 +15,7 @@
 #                                                         #
 ###########################################################
 
-# I) Demonstração de propriedades das matrizes. Matrizes diferentes para cada item. 
+# I) Demonstração de propriedades das matrizes. Observação: matrizes diferentes para cada item. 
 
 
 # 1) associativa da associação de matrizes: 
@@ -46,6 +46,7 @@ matriz_b
 
 matriz_c <- matrix(c( 20, 27, 33, 36), nrow=4, ncol=1)
 matriz_c
+
 
 # Passo II: organização do cálculo 
 
@@ -99,10 +100,10 @@ escalar_1 <- constante_k * matriz_b1 + constante_k * matriz_a1
 escalar == escalar_1 
 
 # Portanto, confirmou-se a igualdade, demonstrando assim a propridade I 
-#da multiplicação por um escalar k. 
+# da multiplicação por um escalar k. 
 
-##############################################
-##############################################
+#######################################################################
+#######################################################################
 #
 # Propridade IV da multiplicação por escalar. 
 
@@ -146,17 +147,18 @@ escalar_2 == escalar_3
 
 # PROPRIEDADE 4: (A+B) * C = A*C + B*C 
 
-matriz_a3 <- matrix(c(12, 5, 3))
+matriz_a3 <- matrix(c(12, 5, 3, 7), nrow=2,ncol=2)
 matriz_a3
-matriz_b3 <- matrix(c(18, 9, 11))
+matriz_b3 <- matrix(c(18, 9, 11, 14), nrow=2, ncol=2)
 matriz_b3
-matriz_c <- matrix(c(1,3,8))
+matriz_c <- matrix(c(1,3,8, 11), nrow=2, ncol=2)
 matriz_c 
 
-escal_mat <- (matriz_a3 + matriz_b3) * matriz_c 
-
-escal_mat_1 <- matriz_a3 * matriz_c + matriz_b3 * matriz_c 
-
+# Organizando o cálculo 
+escal_mat <- (matriz_a3 + matriz_b3) %*% matriz_c 
+escal_mat
+escal_mat_1 <- matriz_a3 %*% matriz_c + matriz_b3 %*% matriz_c 
+escal_mat_1
 escal_mat == escal_mat_1 
 
 # Portanto, comprovou-se a propriedade.
@@ -166,15 +168,21 @@ escal_mat == escal_mat_1
 #
 # PROPRIEDADE 6: A∗B'=B'*A'
 
-matriz_a_linha <- matrix(c(54, 32, 43, 11, 38),nrow=1, ncol=5)
-matriz_a_linha
+matriz_a_transp <- matrix(c(54, 32, 43, 11),nrow=2, ncol=2)
+matriz_a_transp
+matriz_a1_transp <- t(matriz_a_transp)
 
-matriz_b_linha <- matrix(c(47, 24, 61, 14, 19), nrow=1, ncol=5)
-matriz_b_linha
+matriz_b_transp <- matrix(c(47, 24, 61, 14), nrow=2, ncol=2)
+matriz_b_transp
+matriz_b1_transp <- t(matriz_b_transp)
 
-(matriz_a_linha * matriz_b_linha) == matriz_b_linha * matriz_a_linha 
+equal <- t(matriz_a_transp %*% matriz_b_transp) 
+equal_1 <- matriz_b1_transp %*% matriz_a1_transp
 
-# Provavelmente, está acarretada de algum erro. 
+equal == equal_1
+
+# Portanto, comprovou-se a propriedade. 
+
 ######################################################
 ######################################################
 ######################################################
@@ -221,10 +229,10 @@ mdp
 
 N <- c(n1,n2,n3,n4,n5,n6,n7,n8,n9,n10)
 N
+
 vmp <- mean(N)
 vmp
-summary(N)
-
+summary(N) # 'resumo est.' 
 
 # 5) Variância; 
 
@@ -275,12 +283,16 @@ sdN == sqrt(variancia) # desvio padrão é igual a raíz da variância, por isso
 
 medidas <- c(n1,n2,n3,n4,n5,n6,n7,n8,n9,n10)
 medidas
+
 media_das_medidas <- mean(medidas)
 media_das_medidas
 
 desvio_padrao_medidas <- sd(medidas) # obtendo o desvio padrão 
 desvio_padrao_medidas # exibindo o desvio padrão 
-grosseiro <- desvio_padrao_medidas*3 # erro grosseiro é definido como o desvio padrão dos dados multiplicado pela escalar 3. 
+
+grosseiro <- desvio_padrao_medidas*3 # erro grosseiro é definido como o desvio padrão dos dados multiplicado 
+# pelo escalar 3. 
+
 grosseiro # exibindo o valor do erro grosseiro 
 
 # EAA é maior que grosseiro?, em R: EAA1 > grosseiro
@@ -294,15 +306,15 @@ EAA2 > grosseiro # N2  não possui erros grosseiros
 
 EAA3 > grosseiro # N3 não possui erros grosseiros 
 
-EAA4 > grosseiro # N4  possui erros grosseiros 
+EAA4 > grosseiro # N4 não possui erros grosseiros 
 
-EAA5 > grosseiro # Não possui erros grosseiros 
+EAA5 > grosseiro # N5 não possui erros grosseiros 
 
-EAA6 > grosseiro # Não possui erros
+EAA6 > grosseiro # N6 não possui erros grosseiros
 
-EAA7 > grosseiro # N7 não possui erros 
+EAA7 > grosseiro # N7 não possui erros grosseiros
 
-EAA8 > grosseiro # sem erros grosseiros
+EAA8 > grosseiro # N8 não possui erros grosseiros
 
 EAA9 > grosseiro # sem erros grosseiros 
 
@@ -318,16 +330,72 @@ EAA10 > grosseiro # sem erros grosseiros
 # 4) Ajustamento da medida AE pelo Método dos Mínimos Quadrados
 
 
-# Após os devidos cálculos, e organização matricial
+# Após a devida análise e organização matricial
 # o sistema assumiu a seguinte forma:
 
+# -1 * x1a - 0 * x2a - 0 * x3a = -50.63
+# -0 * x1a -1 * x2a - 0 * x3a = -76.63 
+# -0 * x1a - 0 * x2a - 1 * x3a = -29.75 
+# -1 * x1a - 1 * x2a - 0 * x3a = -63.61
+# -0 * x1a - 1 * x2a - 1 * x3a = -127.85
+# -1 * x1a - 1 * x2a - 0 * x3a = -96.63
+# -0 * x1a - 1 * x2a - 1 * x3a = -107.63
 
-# 3x1 + 2x2 + 0x3 = 210.87 
+# logo, define-se os coeficientes das incógnitas; 
+
+# matriz coeficientes das incógnitas
+
+coeficiente <- c(-1,0,0)
+coeficientes_1 <- c(0,-1,0)
+coeficiente_2 <- c(0,0,-1)
+coeficiente_3 <- c(-1,-1,0)
+coeficiente_4 <- c(0,-1,-1)
+coeficiente_5 <- c(-1,-1,0)
+coeficiente_6 <- c(0,-1,-1)
+
+R <- rbind(coeficiente,coeficientes_1,coeficiente_2,coeficiente_3, coeficiente_4, coeficiente_5, coeficiente_6)
+R
+
+# vetor dos valores observados. 
+
+R1 <- -50.63
+R2 <- -76.63
+R3 <- -29.75
+R4 <- -63.61 
+R5 <- -127.85 
+R6 <- -96.63   
+R7 <- -107.63
+
+R_ <- rbind(R1,R2,R3,R4,R5,R6,R7)
+R_
+
+solucao <- solve(t (R) %*% R) %*% t (R) %*% R_
+solucao
+solucao <- round(solucao, digits=2) # arredondar 2 algarismos por conta dos valores observados estarem com 2 algarismos significativos. 
+solucao
+
+# Cálculo realizado com êxito. 
+# Confirmado pelo método de Gauss-Jordan, substituição de incógnitas 
+#
+# e Hourglass Method. (Experimental).
+
+
+
+
+
+######################################################################
+######################################################################
+######################################################################
+# Com a derivação encontra-se resultados mais acurados,
+# como é demonstrado a seguir:
+#
+# 
+# 3x1 + 2x2 + x3 = 210.87 
 # 2x1 + 5x2 + 2x3 = 472.35
 # x1 + 2x2 + 3x3 = 265.23
 
 
-# logo, define-se os coeficientes, e as incógnitas, como segue:
+# logo, define-se os coeficientes, e as constantes, como segue:
 
 # matriz coeficientes das incógnitas
 
@@ -338,7 +406,7 @@ coeficiente_2 <- c(1,2,3)
 R <- rbind(coeficiente,coeficientes_1,coeficiente_2)
 R
 
-# vetor dos valores observados 
+# vetor dos valores observados.
 
 R1 <- 210.87
 R2 <- 472.35
@@ -348,11 +416,6 @@ R_ <- rbind(R1,R2,R3)
 R_
 
 solucao <- solve(t (R) %*% R) %*% t (R) %*% R_
+solucao
 solucao <- round(solucao, digits=2) # arredondar 2 algarismos por conta dos valores observados estarem com 2 algarismos significativos. 
 solucao
-
-# Cálculo realizado com êxito. 
-# Confirmado pelo método de Gauss-Jordan; substituição de incógnitas; etc. 
-#
-
-# Data do término da elaboração do Script: 19/10/2018
