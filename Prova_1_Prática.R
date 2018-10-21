@@ -3,7 +3,6 @@
 #                                                         #
 #                                                         #
 #                                                         #
-#                                                         #
 # Curso de Engenharia Florestal                           #
 #                                                         #
 # II semestre de 2018                                     #
@@ -12,11 +11,9 @@
 #                                                         #
 #                                                         #
 #                                                         #
-#                                                         #
 ###########################################################
 
 # I) Demonstração de propriedades das matrizes. Observação: matrizes diferentes para cada item. 
-
 
 # 1) associativa da associação de matrizes: 
 
@@ -30,21 +27,21 @@
 # em uma adição de matrizes e obter o mesmo resultado. 
 #
 #
-# Para demonstrar esta propriedade, primeiramente, há de se criar as matrizes A, B e C. 
+# Primeiramente, há de se criar as matrizes A, B e C. 
 
 # Passo I: criação das matrizes, de dimensões iguais
 #
 #
-# neste caso, 4x1. 
+# neste caso, 2x2.
 
-matriz_a <- matrix(c(12, 13, 16, 13), nrow=4, ncol=1)
+matriz_a <- matrix(c(12, 13, 16, 13), nrow=2, ncol=2)
 matriz_a
 
 
-matriz_b <- matrix(c(41, 72, 62, 12), nrow=4, ncol=1)
+matriz_b <- matrix(c(41, 72, 62, 12), nrow=2, ncol=2)
 matriz_b
 
-matriz_c <- matrix(c( 20, 27, 33, 36), nrow=4, ncol=1)
+matriz_c <- matrix(c( 20, 27, 33, 36), nrow=2, ncol=2)
 matriz_c
 
 
@@ -190,87 +187,85 @@ equal == equal_1
 #
 # II) Elaborar um exemplo com no mínimo 10 observações. 
 #
-# que contenham valor mais provável, erro absoluto aparente de cada medida;
+# que contenham valor mais provável, variância, erro absoluto aparente de cada medida;
 # erro verdadeiro aparente de cada medida;
 # desvio padrão.
 #
 # Verificar  se  existe  erro  grosseiro,  considerando  os  desvios  padrões  das  medidas  
 # e  não  os  desvios  padrões  dos  erros.
 
-# criando objetos (vetores) com as medidas aleatórias.
+# Obtendo cada medida. 
 
-n1 <- c(12.3)
-
-n2 <- c(12.334)
-
-n3 <- c(11.299)
-
-n4 <- c(25.300)
-
-n5 <- c(22.301)
-
-n6 <- c(32.323)
-
-n7 <- c(17.331)
-
-n8 <- c(19.2)
-
-n9 <- c(21.4)
-
-n10 <- c(25.1)
-
-#obtendo a medida de todos pontos; 
-
-mdp <- sum(n1,n2,n3,n4,n5,n6,n7,n8,n9, n10)
-
-mdp
+mdp1 <- c(12.2)
+mdp1
+mdp2 <- c(12.4)
+mdp2
+mdp3<- c(13.5)
+mdp3
+mdp4 <- c(16.7)
+mdp4
+mdp5 <- c(11.5)
+mdp5
+mdp6 <- c(19.6)
+mdp6
+mdp7 <- c(37.4)
+mdp7 
+mdp8 <- c(41.1)
+mdp8 
+mdp9 <- c(21.3)
+mdp9
+mdp10 <- c(12.5)
+mdp10
 
 # 4) Valor mais provável;
 
-N <- c(n1,n2,n3,n4,n5,n6,n7,n8,n9,n10)
+N <- c(mdp1, mdp2, mdp3, mdp4, mdp5, mdp6, mdp7, mdp8, mdp9, mdp10)
 N
 
 vmp <- mean(N)
 vmp
-summary(N) # 'resumo est.' 
+summary(N) # 'resumo estatístico', 
 
-# 5) Variância; 
+# 5) Variância
 
 variancia <- var(N)
 variancia
 
 # 6) Erro absoluto aparente de cada medida 
 
-EAA1 <- abs(n1-vmp)
+EAA1 <- abs(mdp1-vmp)
 EAA1 
-EAA2 <- abs(n2-vmp)
+EAA2 <- abs(mdp2-vmp)
 EAA2 
-EAA3 <- abs(n3-vmp)
+EAA3 <- abs(mdp3-vmp)
 EAA3 
-EAA4 <- abs(n4-vmp)
+EAA4 <- abs(mdp4-vmp)
 EAA4
-EAA5 <- abs(n5-vmp)
+EAA5 <- abs(mdp5-vmp)
 EAA5
-EAA6 <- abs(n6-vmp)
+EAA6 <- abs(mdp6-vmp)
 EAA6
-EAA7 <- abs(n7-vmp)
+EAA7 <- abs(mdp7-vmp)
 EAA7
-EAA8 <- abs(n8-vmp)
+EAA8 <- abs(mdp8-vmp)
 EAA8
-EAA9 <- abs(n9-vmp)
+EAA9 <- abs(mdp9-vmp)
 EAA9 
-EAA10 <- abs(n10-vmp)
+EAA10 <- abs(mdp10-vmp)
 EAA10
 
 # 7) Erro verdadeiro aparente de cada medida
 
-EvaN1 <- n1-vmp
-EvaN2 <- n2-vmp
-EvaN3 <- n3-vmp
-EvaN4 <- n4-vmp
-EvaN5 <- n5-vmp
-EvaN6 <- n6-vmp
-EvaN7 <- n7-vmp
+EvaN1 <- mdp1-vmp
+EvaN2 <- mdp2-vmp
+EvaN3 <- mdp3-vmp
+EvaN4 <- mdp4-vmp
+EvaN5 <- mdp5-vmp
+EvaN6 <- mdp6-vmp
+EvaN7 <- mdp7-vmp
+EvaN8 <- mdp8-vmp
+EvaN9 <- mdp9-vmp
+EvaN10 <- mdp10-vmp
 
 # 8) Desvio Padrão
 
@@ -281,55 +276,50 @@ sdN == sqrt(variancia) # desvio padrão é igual a raíz da variância, por isso
 
 # 9) Verificar se existe erros grosseiros nos desvios padrões das medidas. 
 
-medidas <- c(n1,n2,n3,n4,n5,n6,n7,n8,n9,n10)
+medidas <- c(mdp1, mdp2, mdp3, mdp4, mdp5, mdp6, mdp7, mdp8, mdp9, mdp10)
 medidas
-
 media_das_medidas <- mean(medidas)
 media_das_medidas
 
 desvio_padrao_medidas <- sd(medidas) # obtendo o desvio padrão 
 desvio_padrao_medidas # exibindo o desvio padrão 
 
-grosseiro <- desvio_padrao_medidas*3 # erro grosseiro é definido como o desvio padrão dos dados multiplicado 
-# pelo escalar 3. 
+grosseiro <- desvio_padrao_medidas * 3 # erro grosseiro é definido como o desvio padrão dos dados multiplicado# pelo escalar 3. 
 
 grosseiro # exibindo o valor do erro grosseiro 
 
-# EAA é maior que grosseiro?, em R: EAA1 > grosseiro
 #
-#
-# Confirmando se o Erro Absoluto Aparente é maior que o erro grosseiro
+# Verificando se o se o desvio padrão é maior que o erro grosseiro
 
-EAA1 > grosseiro # N1 não possui erros grosseiros 
-
-EAA2 > grosseiro # N2  não possui erros grosseiros 
-
-EAA3 > grosseiro # N3 não possui erros grosseiros 
-
-EAA4 > grosseiro # N4 não possui erros grosseiros 
-
-EAA5 > grosseiro # N5 não possui erros grosseiros 
-
-EAA6 > grosseiro # N6 não possui erros grosseiros
-
-EAA7 > grosseiro # N7 não possui erros grosseiros
-
-EAA8 > grosseiro # N8 não possui erros grosseiros
-
-EAA9 > grosseiro # sem erros grosseiros 
-
-EAA10 > grosseiro # sem erros grosseiros 
-
+EAA1 > grosseiro
+EAA1
+EAA2 > grosseiro
+EAA2
+EAA3 > grosseiro
+EAA3 
+EAA4 > grosseiro 
+EAA4
+EAA5 > grosseiro
+EAA5
+EAA6 > grosseiro
+EAA6
+EAA7 > grosseiro 
+EAA7 
+EAA8 > grosseiro
+EAA8 
+EAA9 > grosseiro 
+EAA10 > grosseiro 
 
 # Portanto, não foram encontrados erros grosseiros nas observações. 
 
 #################################################################
-################################################################
-
+#################################################################
+#################################################################
+#################################################################
 
 # 4) Ajustamento da medida AE pelo Método dos Mínimos Quadrados
-
-
+#
+#
 # Após a devida análise e organização matricial
 # o sistema assumiu a seguinte forma:
 
@@ -343,20 +333,20 @@ EAA10 > grosseiro # sem erros grosseiros
 
 # logo, define-se os coeficientes das incógnitas; 
 
-# matriz coeficientes das incógnitas
+# Matriz coeficientes das incógnitas.
 
 coeficiente <- c(-1,0,0)
-coeficientes_1 <- c(0,-1,0)
+coeficiente_1 <- c(0,-1,0)
 coeficiente_2 <- c(0,0,-1)
 coeficiente_3 <- c(-1,-1,0)
 coeficiente_4 <- c(0,-1,-1)
 coeficiente_5 <- c(-1,-1,0)
 coeficiente_6 <- c(0,-1,-1)
 
-R <- rbind(coeficiente,coeficientes_1,coeficiente_2,coeficiente_3, coeficiente_4, coeficiente_5, coeficiente_6)
+R <- rbind(coeficiente,coeficiente_1,coeficiente_2,coeficiente_3, coeficiente_4, coeficiente_5, coeficiente_6)
 R
 
-# vetor dos valores observados. 
+# Vetor dos valores observados. 
 
 R1 <- -50.63
 R2 <- -76.63
@@ -369,53 +359,82 @@ R7 <- -107.63
 R_ <- rbind(R1,R2,R3,R4,R5,R6,R7)
 R_
 
-solucao <- solve(t (R) %*% R) %*% t (R) %*% R_
-solucao
-solucao <- round(solucao, digits=2) # arredondar 2 algarismos por conta dos valores observados estarem com 2 algarismos significativos. 
-solucao
+solucao_0 <- solve(t (R) %*% R) %*% t (R) %*% R_
+solucao_0
+
+solucao_0 <- round(solucao_0, digits=2) # arredondar 2 algarismos por conta dos valores observados estarem com 2 algarismos significativos. 
+solucao_0
+
+# Distância AE ajustada. 
+
+D_AE <- sum(solucao_0)
+D_AE 
 
 # Cálculo realizado com êxito. 
-# Confirmado pelo método de Gauss-Jordan, substituição de incógnitas 
+
+######################################################################
+######################################################################
+######################################################################
 #
-# e Hourglass Method. (Experimental).
-
-
-
-
-
-######################################################################
-######################################################################
-######################################################################
-# Com a derivação encontra-se resultados mais acurados,
-# como é demonstrado a seguir:
 #
-# 
+# Com a derivação encontra-se resultados igualmente fiduciais,
+# como é demonstrado a seguir.
+#
+# O sistema assume a seguinte forma:
+
 # 3x1 + 2x2 + x3 = 210.87 
 # 2x1 + 5x2 + 2x3 = 472.35
-# x1 + 2x2 + 3x3 = 265.23
-
+# 1x1 + 2x2 + 3x3 = 265.23
 
 # logo, define-se os coeficientes, e as constantes, como segue:
 
-# matriz coeficientes das incógnitas
+# Matriz coeficientes das incógnitas.
 
-coeficiente <- c(3,2,0)
+coeficiente_ <- c(3,2,0)
 coeficientes_1 <- c(2,5,2)
-coeficiente_2 <- c(1,2,3)
+coeficientes_2 <- c(1,2,3)
 
-R <- rbind(coeficiente,coeficientes_1,coeficiente_2)
-R
+J <- rbind(coeficiente_,coeficientes_1,coeficientes_2)
+J
 
-# vetor dos valores observados.
+# Vetor dos valores observados. 
 
-R1 <- 210.87
-R2 <- 472.35
-R3 <- 265.23
+J1 <- 210.87
+J2 <- 472.35
+J3 <- 265.23
 
-R_ <- rbind(R1,R2,R3)
-R_
+J_ <- rbind(J1,J2,J3)
+J_
 
-solucao <- solve(t (R) %*% R) %*% t (R) %*% R_
-solucao
-solucao <- round(solucao, digits=2) # arredondar 2 algarismos por conta dos valores observados estarem com 2 algarismos significativos. 
-solucao
+solucao_1 <- solve(t (J) %*% J) %*% t (J) %*% J_
+solucao_1
+solucao_1 <- round(solucao_1, digits=2) 
+solucao_1
+
+# Distância AE com equações derivadas
+
+D_AE_DERIVADA <- sum(solucao_1)
+D_AE_DERIVADA
+
+## diferença entre os resultados.
+
+diferenca <- D_AE - D_AE_DERIVADA
+diferenca
+
+# Confirmando a aproximação dos valores de x1, x2 e x3 encontrados, 
+# em ambos os sistemas. 
+
+colnames(solucao_0) <- c("Incógnitas Ajustadas (m)")
+solucao_0 <-round(solucao_0, digits=2)
+rownames(solucao_0) <- c("x1a", "x2a", "x3a")
+
+solucao_0
+
+colnames(solucao_1) <- c("Incógnitas Ajustadas (m)")
+solucao_1 <-round(solucao_1, digits=2)
+rownames(solucao_1) <- c("x1a", "x2a", "x3a")
+
+solucao_1 
+
+summary(solucao_0) # resumo do resultado sem derivação.
+summary(solucao_1) # resumo do resultado com derivação. 
