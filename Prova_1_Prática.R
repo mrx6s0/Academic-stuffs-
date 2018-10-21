@@ -289,7 +289,7 @@ grosseiro <- desvio_padrao_medidas * 3 # erro grosseiro é definido como o desvi
 grosseiro # exibindo o valor do erro grosseiro 
 
 #
-# Verificando se o se o desvio padrão é maior que o erro grosseiro
+# Verificando se há erros grosseiros 
 
 EAA1 > grosseiro
 EAA1
@@ -435,6 +435,9 @@ solucao_1 <-round(solucao_1, digits=2)
 rownames(solucao_1) <- c("x1a", "x2a", "x3a")
 
 solucao_1 
+solucao_0 > solucao_1 # solução sem equações derivadas tem um valor maior que a 
+## solução com equações derivadas. Ou seja, há uma maior acurácia utilizando-se 
+## de derivadas. 
 
 summary(solucao_0) # resumo do resultado sem derivação.
-summary(solucao_1) # resumo do resultado com derivação. 
+summary(solucao_1) # resumo do resultado com derivação.
